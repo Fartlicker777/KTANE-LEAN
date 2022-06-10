@@ -125,6 +125,7 @@ public class Lean : MonoBehaviour {
       }
       if (L && N && !A) {
          b = b / 3;
+         b = b % 16;
          Debug.LogFormat("[LEAN!!! #{0}] B becomes {1} (LaN).", ModuleId, b);
       }
       if (L && E) {
@@ -134,6 +135,7 @@ public class Lean : MonoBehaviour {
       if (!E) {
          b -= 7;
          b = b < 0 ? b + 16 : b;
+         b = b % 16;
          Debug.LogFormat("[LEAN!!! #{0}] B becomes {1} (e).", ModuleId, b);
       }
       if (!L && !E && A) {
