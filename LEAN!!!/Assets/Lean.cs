@@ -108,7 +108,7 @@ public class Lean : MonoBehaviour {
 
    void Calculation () {
       int a = Bomb.GetSerialNumberNumbers().First();
-      int b = Bomb.GetModuleNames().Count();
+      int b = (Bomb.GetModuleNames().Count()) % 16;
       int c = Bomb.GetSerialNumberNumbers().Last();
 
       Debug.LogFormat("[LEAN!!! #{0}] A's initial value is {1}, B is {2}, C is {3}.", ModuleId, a, b, c);
@@ -125,6 +125,7 @@ public class Lean : MonoBehaviour {
       }
       if (L && N && !A) {
          b = b / 3;
+         b = b % 16;
          Debug.LogFormat("[LEAN!!! #{0}] B becomes {1} (LaN).", ModuleId, b);
       }
       if (L && E) {
@@ -134,6 +135,7 @@ public class Lean : MonoBehaviour {
       if (!E) {
          b -= 7;
          b = b < 0 ? b + 16 : b;
+         b = b % 16;
          Debug.LogFormat("[LEAN!!! #{0}] B becomes {1} (e).", ModuleId, b);
       }
       if (!L && !E && A) {
